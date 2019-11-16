@@ -1,0 +1,49 @@
+@url = http://localhost:4000
+
+### GET REQUEST FOR (CAR ROUTES)
+GET {{url}}/cars
+
+### GET CAR BY ID - WORKING (CAR ROUTES)
+GET {{url}}/cars/1
+
+### GET CAR BY ID - WRONG ID (CAR ROUTES)
+GET {{url}}/cars/99
+
+### POST CAR - WORKING (CAR ROUTES)
+POST {{url}}/cars
+Content-Type: application/json
+
+{
+    "vin" : "as7s8sd",
+    "make" : "vespa",
+    "model" : "car",
+    "mileage" : 123442341343
+}
+
+### POST CAR - MISSING DATA (CAR ROUTES)
+POST {{url}}/cars
+Content-Type: application/json
+
+{
+    "vin" : "as7s8sd",
+    "make" : "vespa",
+    "mileage" : 123442341343
+}
+
+### POST CAR - MISSING BODY (CAR ROUTES)
+POST {{url}}/cars
+Content-Type: application/json
+
+### PUT CAR - WORKIN (CAR ROUTES)
+PUT {{url}}/cars/2
+Content-Type: application/json
+
+{
+    "vin" : "NewVin",
+    "make" : "asdfsda",
+    "model" : "help",
+    "mileage" : 200
+}
+
+### DELETE CAR - WORKING (CAR ROUTES)
+DELETE {{url}}/cars/2
