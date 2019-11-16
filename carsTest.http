@@ -33,3 +33,17 @@ Content-Type: application/json
 ### POST CAR - MISSING BODY (CAR ROUTES)
 POST {{url}}/cars
 Content-Type: application/json
+
+### PUT CAR - WORKIN (CAR ROUTES)
+PUT {{url}}/cars/2
+Content-Type: application/json
+
+{
+    "vin" : "NewVin",
+    "make" : "asdfsda",
+    "model" : "help",
+    "mileage" : 200
+}
+
+### DELETE CAR - WORKING (CAR ROUTES)
+DELETE {{url}}/cars/2
