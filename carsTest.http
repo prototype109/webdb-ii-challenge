@@ -17,9 +17,7 @@ Content-Type: application/json
     "vin" : "as7s8sd",
     "make" : "vespa",
     "model" : "car",
-    "mileage" : 123442341343,
-    "tansmissionType" : "mission",
-    "titleStatus" : "good"
+    "mileage" : 123442341343
 }
 
 ### POST CAR - MISSING DATA (CAR ROUTES)
@@ -31,3 +29,7 @@ Content-Type: application/json
     "make" : "vespa",
     "mileage" : 123442341343
 }
+
+### POST CAR - MISSING BODY (CAR ROUTES)
+POST {{url}}/cars
+Content-Type: application/json

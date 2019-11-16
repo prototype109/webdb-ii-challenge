@@ -24,6 +24,28 @@ carRoute.post("/", validateCar, async (req, res) => {
   }
 });
 
+carRoute.put("/:id", validateId, validateCar, async (req, res) => {
+  try {
+    const car = await db("cars")
+      .where("id", req.params.id)
+      .update(req.body);
+    res.status(200).json(car);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+carRoute.delete("/:id", validateId, async (req, res) => {
+  try {
+    await db("cars")
+      .where("id", req.params.id)
+      .del();
+    res.status(204).end();
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 async function validateId(req, res, next) {
   try {
     const car = await db("cars").where("id", req.params.id);
@@ -38,7 +60,7 @@ async function validateId(req, res, next) {
   }
 }
 
-async function validateCar(req, res, next) {
+function validateCar(req, res, next) {
   const reqBody = req.body;
   if (Object.keys(reqBody).length) {
     if (!reqBody.vin || !reqBody.make || !reqBody.model || !reqBody.mileage) {
